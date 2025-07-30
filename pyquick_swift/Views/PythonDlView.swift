@@ -7,7 +7,7 @@
 
 import SwiftUI
 @available(macOS 26.0,*)
-struct ActionButtonsView:View {
+struct PythonDlView:View {
     @Binding var isKDKSelected: Bool
     @Binding var isInstalling: Bool
     @Binding var isMerging: Bool

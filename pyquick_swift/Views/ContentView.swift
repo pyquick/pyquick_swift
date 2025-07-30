@@ -6,20 +6,50 @@
 //
 
 import SwiftUI
-
+@available(macOS 15,*)
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+    @State private var showAboutView = false
+    var body: some View{
+        TabView{
+            Tab("Python Download", systemImage: "tray.and.arrow.down.fill") {
+                
+            }
+            .badge(2)
+            Tab("Pip Manager", systemImage: "tray.and.arrow.up.fill") {
+                
+            }
+            .badge(2)
+            
         }
-        .padding()
-        
+        Spacer()
+        Divider()
+        VStack(spacing:12){
+            HStack(spacing:12){
+                if #available(macOS 26.0, *){
+                    Button("About App",systemImage: "info.square.fill"){
+                        showAboutView=true
+                        
+                    }
+                    .frame(minWidth: 120)
+                    
+                    .buttonStyle(PrimaryLiquidGlassStyle())
+                    .sheet(isPresented: $showAboutView) {
+                        AboutView()
+                    }
+                }else{
+                    Button("About App",systemImage: "info.square.fill"){
+                        showAboutView=true
+                    }
+                    .frame(minWidth: 120)
+                    .buttonStyle(SecondaryButtonStyle())
+                    .sheet(isPresented: $showAboutView) {
+                        AboutView()
+                    }
+                }
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 8)
+        }
     }
 }
 
-#Preview {
-    ContentView()
-}

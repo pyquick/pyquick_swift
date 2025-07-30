@@ -1,8 +1,8 @@
 //
 //  ButtonStyles.swift
-//  SimpleLoader
+//  pyquick_swift
 //
-//  Created by laobamac on 2025/7/27.
+//  Created by pyquick on 2025/7/29.
 //
 
 import SwiftUI
